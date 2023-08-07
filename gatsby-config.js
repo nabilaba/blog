@@ -11,6 +11,7 @@ module.exports = {
     twitterUsername: `@nabil_aba`,
     image: `/preview.png`,
     siteUrl: `https://nabilaba.github.io`,
+    keywords: `gatsbyjs, gatsby, javascript, sample, something, blog, contentful, chakra ui`,
   },
   plugins: [
     {
