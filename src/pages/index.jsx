@@ -1,5 +1,5 @@
 import * as React from "react";
-import SEOComponent from "../components/SEO"
+import SEOComponent from "../components/SEOComponent";
 
 const pageStyles = {
   color: "#232129",
@@ -17,7 +17,6 @@ const headingAccentStyles = {
 const IndexPage = () => {
   return (
     <>
-      <SEOComponent />
       <main style={pageStyles}>
         <h1 style={headingStyles}>
           Congratulations
@@ -36,3 +35,7 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export const Head = () => {
+  return <SEOComponent />;
+};
