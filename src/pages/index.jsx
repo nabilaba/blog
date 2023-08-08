@@ -10,7 +10,7 @@ const IndexPage = () => {
         <Text mt="0" mb="64" maxW="320">
           Congratulations
           <br />
-          <Text as="span" color="red.500">
+          <Text as="span" color="#663399">
             — you just made a Gatsby site! 🎉🎉🎉
           </Text>
         </Text>
