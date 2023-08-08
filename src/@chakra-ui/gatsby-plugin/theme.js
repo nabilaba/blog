@@ -10,13 +10,20 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    heading: "Poppins",
-    body: "Poppins",
+    heading: "Poppins, sans-serif",
+    body: "Poppins, sans-serif",
   },
   config: {
     useSystemColorMode: false,
     initialColorMode: "light",
     disableTransitionOnChange: false,
+  },
+  components: {
+    Text: {
+      baseStyle: {
+        fontSize: "20px",
+      },
+    },
   },
 });
 

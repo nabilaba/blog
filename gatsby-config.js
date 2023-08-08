@@ -58,7 +58,7 @@ module.exports = {
          * @property {boolean} [resetCSS=true]
          * if false, this plugin will not use `<CSSReset />
          */
-        // resetCSS: true,
+        resetCSS: true,
         /**
          * @property {number} [portalZIndex=undefined]
          * The z-index to apply to all portal nodes. This is useful
