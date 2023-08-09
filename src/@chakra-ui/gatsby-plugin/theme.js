@@ -1,13 +1,15 @@
 import { extendTheme } from "@chakra-ui/react";
-import "@fontsource/poppins";
+import "@fontsource/poppins";;
 
 const theme = extendTheme({
   styles: {
-    "html *": {
-      transitionProperty: "background-color, border-color",
-      transitionDuration: "200ms",
-      transitionTimingFunction: "linear",
-    },
+    global: () => ({
+      "html *": {
+        transitionProperty: "background-color, border-color",
+        transitionDuration: "200ms",
+        transitionTimingFunction: "linear",
+      },
+    }),
   },
   fonts: {
     heading: "Poppins, sans-serif",
