@@ -27,7 +27,6 @@ const Section1 = () => {
             h="calc(100vh / 4)"
             rounded="xl"
             overflow="hidden"
-            role="group"
             _hover={{
               ".img": {
                 transform: "scale(1.1)",
