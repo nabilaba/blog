@@ -20,12 +20,13 @@ const Section1 = () => {
         {Object.keys(Array.from(Array(4))).map((_, i) => (
           <Box
             as={Link}
-            to="/article"
+            to={`/article${i}`}
             pos="relative"
             w="100%"
             h="calc(100vh / 4)"
             key={i}
             role="group"
+            aria-label="Card"
             rounded="xl"
             overflow="hidden"
           >
@@ -75,7 +76,7 @@ const Section1 = () => {
               <HStack spacing="1" mt="1">
                 <Text
                   fontSize="80%"
-                  bg="red"
+                  bg="red.600"
                   px="1"
                   rounded="sm"
                   w="fit-content"
