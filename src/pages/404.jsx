@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Link } from "gatsby";
+import { Link } from "gatsby-link";
 import SEOComponent from "../components/SEOComponent";
-import { Code, Stack, Text } from "@chakra-ui/react";
+import { Code, Stack, Text } from "@chakra-ui/layout";
 import Layout from "../components/Layout";
 
 const NotFoundPage = () => {

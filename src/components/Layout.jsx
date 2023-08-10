@@ -1,7 +1,7 @@
 import * as React from "react";
-
 import Header from "./Header";
-import { Box, useColorModeValue } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/layout";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 
 const Layout = ({ children }) => {
   return (

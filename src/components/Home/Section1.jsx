@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Link } from "gatsby";
-import { Box, Grid, HStack, Image, Text } from "@chakra-ui/react";
+import { Link } from "gatsby-link";
+import { Box, Grid, HStack, Text } from "@chakra-ui/layout";
+import { Image } from "@chakra-ui/image";
 import { getImage } from "gatsby-plugin-image";
 
 const Section1 = () => {

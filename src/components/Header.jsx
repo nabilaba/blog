@@ -1,14 +1,10 @@
 import * as React from "react";
-import {
-  HStack,
-  IconButton,
-  Input,
-  Text,
-  useColorMode,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { IconButton } from "@chakra-ui/button";
+import { Input } from "@chakra-ui/input";
+import { HStack, Text } from "@chakra-ui/layout";
+import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import { SearchIcon, SunIcon, MoonIcon } from "@chakra-ui/icons";
-import { Link } from "gatsby";
+import { Link } from "gatsby-link";
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -58,7 +54,7 @@ const Header = () => {
           variant="ghost"
           colorScheme="gray"
           size="md"
-          onClick={() => toggleColorMode()}
+          onClick={toggleColorMode}
           _hover={{ bg: "transparent" }}
         />
       </HStack>
