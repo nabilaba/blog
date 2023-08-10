@@ -21,25 +21,27 @@ const Section1 = () => {
           <Box
             as={Link}
             to={`/article${i}`}
+            key={i}
             pos="relative"
             w="100%"
             h="calc(100vh / 4)"
-            key={i}
-            role="group"
-            aria-label="Card"
             rounded="xl"
             overflow="hidden"
+            role="group"
+            _hover={{
+              ".img": {
+                transform: "scale(1.1)",
+              },
+            }}
           >
             <Image
+              className="img"
               src={loadImg}
               alt="..."
               objectFit="cover"
               w="100%"
               h="100%"
               transition="all 0.3s ease-in-out"
-              _groupHover={{
-                transform: "scale(1.1)",
-              }}
             />
             <Box
               pos="absolute"
@@ -48,7 +50,6 @@ const Section1 = () => {
               right="0"
               bottom="0"
               bgGradient="linear(to-t, blackAlpha.900 20%, transparent)"
-              transition="all 0.3s ease-in-out"
             />
             <Box
               pos="absolute"
@@ -58,7 +59,6 @@ const Section1 = () => {
               p="2"
               fontSize="md"
               color="white"
-              transition="all 0.3s ease-in-out"
             >
               <Text
                 fontSize="90%"
