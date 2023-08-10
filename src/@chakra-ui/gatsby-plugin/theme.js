@@ -1,5 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
-import "@fontsource/poppins";;
+import "@fontsource/poppins";
 
 const theme = extendTheme({
   styles: {
@@ -24,6 +24,27 @@ const theme = extendTheme({
     Text: {
       baseStyle: {
         fontSize: "20px",
+      },
+    },
+    Input: {
+      variants: {
+        outline: {
+          field: {
+            border: "none",
+            outline: "none",
+            boxShadow: "none",
+            _focus: { border: "none", outline: "none", boxShadow: "none" },
+          },
+        },
+      },
+    },
+    Button: {
+      variants: {
+        ghost: {
+          bg: "transparent",
+          _hover: { bg: "transparent" },
+          _active: { bg: "transparent" },
+        },
       },
     },
   },

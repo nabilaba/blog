@@ -8,17 +8,29 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { SearchIcon, SunIcon, MoonIcon } from "@chakra-ui/icons";
+import { Link } from "gatsby";
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <HStack
       bg={useColorModeValue("white", "gray.800")}
-      p="2"
+      px="4"
       justify="space-between"
       w="100%"
+      h="50px"
+      pos="fixed"
+      top="0"
+      left="0"
+      right="0"
+      zIndex="100"
     >
-      <Text fontWeight="bold">BeritaInformasi</Text>
+      <Text as={Link} to="/" fontWeight="extrabold" color="red">
+        Berbagi
+        <Text as="span" color={useColorModeValue("gray.500", "gray.200")}>
+          Informasi
+        </Text>
+      </Text>
       <HStack>
         <HStack
           as="form"
@@ -30,14 +42,7 @@ const Header = () => {
           w="20vw"
           onSubmit={(e) => e.preventDefault()}
         >
-          <Input
-            p="0"
-            placeholder="Cari berita"
-            bg="transparent"
-            outline="none"
-            border="none"
-            _focus={{ border: "none", outline: "none", boxShadow: "none" }}
-          />
+          <Input p="0" placeholder="Cari berita" bg="transparent" size="sm" />
           <IconButton
             aria-label="Search"
             icon={<SearchIcon />}
