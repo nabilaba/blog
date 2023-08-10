@@ -35,6 +35,7 @@ module.exports = {
     },
     "gatsby-plugin-mdx",
     "gatsby-transformer-remark",
+    "gatsby-plugin-webpack-bundle-analyser-v2",
     {
       resolve: "gatsby-source-filesystem",
       options: {
