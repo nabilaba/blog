@@ -29,9 +29,6 @@ export const pageQuery = graphql`
   query HomeQuery {
     allContentfulBlogPost(sort: { publishDate: DESC }) {
       nodes {
-        description {
-          raw
-        }
         title
         slug
         publishDate(locale: "ID", formatString: "DD MMMM YYYY")

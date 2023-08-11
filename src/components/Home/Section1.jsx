@@ -11,7 +11,7 @@ const Section1 = ({ posts }) => {
     return (
       <Box
         as={Link}
-        to={`/blog/${post.slug}`}
+        to={`/${post.slug}`}
         key={i}
         pos="relative"
         w="100%"

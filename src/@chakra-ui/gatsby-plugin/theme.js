@@ -21,11 +21,6 @@ const theme = extendTheme({
     disableTransitionOnChange: false,
   },
   components: {
-    Text: {
-      baseStyle: {
-        fontSize: "20px",
-      },
-    },
     Input: {
       variants: {
         outline: {

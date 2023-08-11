@@ -3,7 +3,7 @@ import Header from "./Header";
 import { Box } from "@chakra-ui/layout";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, ...props }) => {
   return (
     <>
       <Header />
@@ -14,6 +14,7 @@ const Layout = ({ children }) => {
         p="4"
         bg={useColorModeValue("gray.100", "gray.700")}
         mt="50px"
+        {...props}
       >
         {children}
       </Box>
