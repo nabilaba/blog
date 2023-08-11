@@ -21,11 +21,7 @@ const options = {
   },
   renderNode: {
     [INLINES.HYPERLINK]: (node, children) => (
-      <Link
-        href={node.data.uri}
-        target="_blank"
-        textDecoration="underline"
-      >
+      <Link href={node.data.uri} target="_blank" textDecoration="underline">
         {children}
       </Link>
     ),
@@ -33,17 +29,37 @@ const options = {
     [BLOCKS.HEADING_2]: (node, children) => {
       return <Heading fontSize="xl">{children}</Heading>;
     },
-    [BLOCKS.HEADING_3]: (node, children) => <Heading fontSize="xl">{children}</Heading>,
-    [BLOCKS.HEADING_4]: (node, children) => <Heading fontSize="xl">{children}</Heading>,
-    [BLOCKS.HEADING_5]: (node, children) => <Heading fontSize="xl">{children}</Heading>,
-    [BLOCKS.HEADING_6]: (node, children) => <Heading fontSize="xl">{children}</Heading>,
+    [BLOCKS.HEADING_3]: (node, children) => (
+      <Heading fontSize="xl">{children}</Heading>
+    ),
+    [BLOCKS.HEADING_4]: (node, children) => (
+      <Heading fontSize="xl">{children}</Heading>
+    ),
+    [BLOCKS.HEADING_5]: (node, children) => (
+      <Heading fontSize="xl">{children}</Heading>
+    ),
+    [BLOCKS.HEADING_6]: (node, children) => (
+      <Heading fontSize="xl">{children}</Heading>
+    ),
 
     [BLOCKS.OL_LIST]: (node, children) => <OrderedList>{children}</OrderedList>,
     [BLOCKS.UL_LIST]: (node, children) => (
       <UnorderedList>{children}</UnorderedList>
     ),
 
-    [BLOCKS.LIST_ITEM]: (node, children) => <ListItem ml="4">{children}</ListItem>,
+    [BLOCKS.LIST_ITEM]: (node, children) => (
+      <ListItem
+        ml="4"
+        sx={{
+          p: {
+            mt: "0",
+            mb: "0",
+          },
+        }}
+      >
+        {children}
+      </ListItem>
+    ),
     [BLOCKS.PARAGRAPH]: (node, children) => {
       if (node.content[0].value === "") {
         return <br />;

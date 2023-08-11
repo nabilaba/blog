@@ -4,13 +4,23 @@ import { graphql } from "gatsby";
 import SEOComponent from "../components/SEOComponent";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import RenderContentful from "../components/RenderContentful";
-import { Heading } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 
 const PostTemplate = ({ data }) => {
   const post = data.contentfulBlogPost;
 
   return (
-    <Layout>
+    <Layout px={{ base: 4, lg: 24 }}>
+      <Box>
+        <Heading fontSize="2xl">{post.title}</Heading>
+        <Text>
+          {documentToPlainTextString(JSON.parse(post.description.raw))}
+        </Text>
+        <Text fontSize="80%" color="gray.400">
+          {post.publishDate}
+        </Text>
+      </Box>
       <GatsbyImage
         image={getImage(post.heroImage)}
         alt={post.title}
@@ -18,12 +28,11 @@ const PostTemplate = ({ data }) => {
           transition: "transform 0.5s ease",
           objectFit: "cover",
           width: "100%",
-          height: "300px",
+          height: "350px",
+          marginTop: "1rem",
+          marginBottom: "1rem",
         }}
       />
-      <Heading fontSize="2xl" my="4">
-        {post.title}
-      </Heading>
       <RenderContentful content={post.body} />
     </Layout>
   );
@@ -48,6 +57,7 @@ export const query = graphql`
       heroImage {
         gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
       }
+      publishDate(formatString: "DD MMMM YYYY", locale: "ID")
       slug
     }
   }

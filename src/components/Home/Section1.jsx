@@ -64,11 +64,9 @@ const Section1 = ({ posts }) => {
           >
             {post.title}
           </Text>
-          <Stack>
-            <Text fontSize="80%" color="gray.400">
-              {post.publishDate}
-            </Text>
-          </Stack>
+          <Text fontSize="80%" color="gray.400">
+            {post.publishDate}
+          </Text>
           <HStack spacing="1" mt="1">
             {post.tags?.map((tag, i) => (
               <Text
