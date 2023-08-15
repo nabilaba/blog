@@ -10,15 +10,14 @@ const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <HStack
+      as="nav"
       bg={useColorModeValue("white", "gray.800")}
       px="4"
       justify="space-between"
       w="100%"
       h="50px"
-      pos="fixed"
+      pos="sticky"
       top="0"
-      left="0"
-      right="0"
       zIndex="100"
     >
       <Text as={Link} to="/" fontWeight="extrabold" color="red">

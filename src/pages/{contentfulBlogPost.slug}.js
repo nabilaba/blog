@@ -1,5 +1,4 @@
-import * as React from "react";
-import Layout from "../components/Layout";
+import React, { useEffect } from "react";
 import { graphql } from "gatsby";
 import SEOComponent from "../components/SEOComponent";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -11,7 +10,7 @@ const PostTemplate = ({ data }) => {
   const post = data.contentfulBlogPost;
 
   return (
-    <Layout px={{ base: 4, lg: 24 }}>
+    <Box px={{ base: 4, lg: 24 }} h="100%" w="100%">
       <Box>
         <Heading fontSize="2xl">{post.title}</Heading>
         <Text>
@@ -34,7 +33,7 @@ const PostTemplate = ({ data }) => {
         }}
       />
       <RenderContentful content={post.body} />
-    </Layout>
+    </Box>
   );
 };
 
