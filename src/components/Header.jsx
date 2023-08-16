@@ -20,11 +20,15 @@ const Header = () => {
       top="0"
       zIndex="100"
     >
-      <Text as={Link} to="/" fontWeight="extrabold" color="red">
-        Berbagi
-        <Text as="span" color={useColorModeValue("gray.500", "gray.200")}>
-          Informasi
-        </Text>
+      <Text
+        as={Link}
+        to="/"
+        fontWeight="extrabold"
+        fontStyle="italic"
+        fontSize="3xl"
+        letterSpacing="wider"
+      >
+        NabilBlog.
       </Text>
       <HStack>
         <HStack

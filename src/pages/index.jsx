@@ -2,14 +2,12 @@ import * as React from "react";
 import SEOComponent from "../components/SEOComponent";
 import AllPosts from "../components/AllPosts";
 import { graphql } from "gatsby";
-import Headline from "../components/Headline";
 import { Stack } from "@chakra-ui/layout";
 
 const IndexPage = ({ data }) => {
   return (
     <>
       <Stack>
-        <Headline post={data.allContentfulBlogPost.nodes[0]} />
         <AllPosts data={data.allContentfulTags.nodes} />
       </Stack>
     </>
@@ -27,6 +25,9 @@ export const pageQuery = graphql`
     allContentfulTags(sort: { name: ASC }) {
       nodes {
         blog_post {
+          description {
+            raw
+          }
           tags {
             name
           }
