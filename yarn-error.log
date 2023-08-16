@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Nabil Aba\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @contentful/rich-text-plain-text-renderer
+  C:\Program Files\nodejs\node.exe C:\Users\Nabil Aba\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js remove gatsby-plugin-web-font-loader @mdx-js/react gatsby-plugin-mdx
 
 PATH: 
   C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Gradle\gradle-6.6\bin;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\nodejs\;C:\Users\Nabil Aba\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\Nabil Aba\AppData\Local\Programs\Python\Python39\;C:\Users\Nabil Aba\AppData\Local\Microsoft\WindowsApps;C:\NABIL_ABA\JAVA\jdk-8u261\Update\bin;C:\Users\Nabil Aba\AppData\Roaming\Composer\vendor\bin;C:\Users\Nabil Aba\go\bin;C:\Hugo\bin;C:\Users\Nabil Aba\AppData\Local\Microsoft\WindowsApps;C:\Grader;C:\Program Files\N-Grader;C:\Users\Nabil Aba;C:\Program Files\heroku\bin;C:\Users\Nabil Aba\go\bin;C:\jq;C:\Users\Nabil Aba\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\PostgreSQL\15\bin;C:\Users\Nabil Aba\AppData\Roaming\npm
@@ -14,7 +14,12 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\Nabil Aba\Desktop\gatsby\blog\node_modules\sharp\build\Release\libvips-42.dll'
+  SyntaxError: C:\Users\Nabil Aba\Desktop\gatsby\blog\package.json: Unexpected token } in JSON at position 312
+      at JSON.parse (<anonymous>)
+      at C:\Users\Nabil Aba\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Nabil Aba\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\Nabil Aba\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
 
 npm manifest: 
   {
@@ -32,15 +37,14 @@ npm manifest:
       "build": "gatsby build",
       "serve": "gatsby serve",
       "clean": "gatsby clean",
-      "preload-fonts": "gatsby-preload-fonts"
     },
     "dependencies": {
       "@chakra-ui/gatsby-plugin": "^3.1.3",
       "@chakra-ui/icons": "^2.1.0",
       "@chakra-ui/react": "^2.8.0",
+      "@contentful/rich-text-plain-text-renderer": "^16.0.6",
       "@emotion/react": "^11.11.1",
       "@emotion/styled": "^11.11.0",
-      "@fontsource/poppins": "^5.0.8",
       "@mdx-js/react": "^2.3.0",
       "framer-motion": "^10.15.0",
       "gatsby": "^5.11.0",
@@ -48,7 +52,6 @@ npm manifest:
       "gatsby-plugin-manifest": "^5.11.0",
       "gatsby-plugin-mdx": "^5.11.0",
       "gatsby-plugin-netlify": "^5.1.0",
-      "gatsby-plugin-preload-fonts": "^4.11.0",
       "gatsby-plugin-robots-txt": "^1.8.0",
       "gatsby-plugin-sharp": "^5.11.0",
       "gatsby-plugin-sitemap": "^6.11.0",
@@ -1174,7 +1177,7 @@ Lockfile:
     dependencies:
       regenerator-runtime "^0.13.11"
   
-  "@babel/runtime@^7.21.5", "@babel/runtime@^7.7.7":
+  "@babel/runtime@^7.21.5":
     version "7.22.10"
     resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.10.tgz#ae3e9631fd947cb7e3610d3e9d8fef5f76696682"
     integrity sha512-21t/fkKLMZI4pqP2wlmsQAWnYW1PDyKyyUV4vCi+B25ydmdaYTKXPwCj0BzSUnZf4seIiYvSA3jcZ3gdsMFkLQ==
@@ -2038,6 +2041,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@chakra-ui/visually-hidden/-/visually-hidden-2.1.0.tgz#9ec573964e5a07f8682574a060140d78e9f91c32"
     integrity sha512-3OHKqTz78PX7V4qto+a5Y6VvH6TbU3Pg6Z0Z2KnDkOBP3Po8fiz0kk+/OSPzIwdcSsQKiocLi0c1pnnUPdMZPg==
   
+  "@contentful/rich-text-plain-text-renderer@^16.0.6":
+    version "16.0.6"
+    resolved "https://registry.yarnpkg.com/@contentful/rich-text-plain-text-renderer/-/rich-text-plain-text-renderer-16.0.6.tgz#2a3882e92ef711954bb3cc12dfa2440447c1f3f5"
+    integrity sha512-CvsU5T8zqwHh2bgzmHKnxKjcxpCMeTkHAklzblUTLPCkHVyJnbBqAZ6h9tpGbyFY3+WIDI6co22+oJIaHUDxuA==
+    dependencies:
+      "@contentful/rich-text-types" "^16.2.1"
+  
   "@contentful/rich-text-react-renderer@^15.16.5":
     version "15.17.1"
     resolved "https://registry.yarnpkg.com/@contentful/rich-text-react-renderer/-/rich-text-react-renderer-15.17.1.tgz#e173746e58f505fe8dd5335abf1e9ebc58f7157f"
@@ -2205,11 +2215,6 @@ Lockfile:
       js-yaml "^3.13.1"
       minimatch "^3.0.4"
       strip-json-comments "^3.1.1"
-  
-  "@fontsource/poppins@^5.0.8":
-    version "5.0.8"
-    resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-5.0.8.tgz#a1c5540aedb3719a36eba5c7c5dfaa3aed3c9f80"
-    integrity sha512-P8owfYWluoUY5Nyzk4gT/L6LmLmseP6ezFWhj6VBUa5pRIdnCvNJpoQ6i/vhekjtJOfqX6nKlB+LCttoUl2GQQ==
   
   "@gatsbyjs/parcel-namer-relative-to-cwd@^2.11.0":
     version "2.11.0"
@@ -2593,15 +2598,6 @@ Lockfile:
     version "2.5.3"
     resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-2.5.3.tgz#c72e8b6faae31d925d23a6db0379cc3fe0216fdd"
     integrity sha512-cK+Elf3RjEzrm3SerAhrFWL5oQAsZSJ/LmjL1joIpTfEP1etJJ9CTRvdaV6XLYAxaEkfdhk/9hOvHLbR9yIhCA==
-  
-  "@loadable/component@^5.15.3":
-    version "5.15.3"
-    resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.15.3.tgz#7de7dcbdbf3db3799bf48d58cfcbae7a18d1818c"
-    integrity sha512-VOgYgCABn6+/7aGIpg7m0Ruj34tGetaJzt4bQ345FwEovDQZ+dua+NWLmuJKv8rWZyxOUSfoJkmGnzyDXH2BAQ==
-    dependencies:
-      "@babel/runtime" "^7.7.7"
-      hoist-non-react-statics "^3.3.1"
-      react-is "^16.12.0"
   
   "@mdx-js/mdx@^2.3.0":
     version "2.3.0"
@@ -3841,11 +3837,6 @@ Lockfile:
     version "1.2.2"
     resolved "https://registry.yarnpkg.com/address/-/address-1.2.2.tgz#2b5248dac5485a6390532c6a517fda2e3faac89e"
     integrity sha512-4B/qKCfeE/ODUaAUpSwfzazo5x29WD4r3vXiWsB7I2mSDAihwEqKO+g8GELZUQSSAo5e1XTYh3ZVfLyxBc12nA==
-  
-  agent-base@5:
-    version "5.1.1"
-    resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-5.1.1.tgz#e8fb3f242959db44d63be665db7a8e739537a32c"
-    integrity sha512-TMeqbNl2fMW0nMjTEPOwe3J/PRFP4vqeoNuQMG0HlMrtm5QxKqdvAkZ1pRBQ/ulIyDD5Yq0nJ7YbdD8ey0TO3g==
   
   agent-base@^7.0.1, agent-base@^7.0.2, agent-base@^7.1.0:
     version "7.1.0"
@@ -5216,14 +5207,6 @@ Lockfile:
     dependencies:
       "@babel/runtime" "^7.20.13"
   
-  cross-fetch@2.2.2:
-    version "2.2.2"
-    resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-2.2.2.tgz#a47ff4f7fc712daba8f6a695a11c948440d45723"
-    integrity sha512-sMF1jhA9GQ6PlBhneCxtCToyK7vHEEbmk+3DgZPjJaqsHSgsb69ajLMSOSmW5OLTDhZ0w+Fe8u7PQofZhJwqzQ==
-    dependencies:
-      node-fetch "2.1.2"
-      whatwg-fetch "2.0.4"
-  
   cross-fetch@4.0.0:
     version "4.0.0"
     resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-4.0.0.tgz#f037aef1580bb3a1a35164ea2a848ba81b445983"
@@ -6453,7 +6436,7 @@ Lockfile:
       iconv-lite "^0.4.24"
       tmp "^0.0.33"
   
-  extract-zip@2.0.1, extract-zip@^2.0.0:
+  extract-zip@2.0.1:
     version "2.0.1"
     resolved "https://registry.yarnpkg.com/extract-zip/-/extract-zip-2.0.1.tgz#663dca56fe46df890d5f131ef4a06d22bb8ba13a"
     integrity sha512-GDhU9ntwuKyGXdZBUgTIe+vXnWj0fppUEtMDL0+idd5Sta8TGpHssn/eusA9mrPr9qNDym6SxAYZjNvCn/9RBg==
@@ -7056,20 +7039,6 @@ Lockfile:
       gatsby-telemetry "^4.11.0"
       globby "^11.1.0"
       lodash "^4.17.21"
-  
-  gatsby-plugin-preload-fonts@^4.11.0:
-    version "4.11.0"
-    resolved "https://registry.yarnpkg.com/gatsby-plugin-preload-fonts/-/gatsby-plugin-preload-fonts-4.11.0.tgz#b78a79305b185b43746f7d0d0e4b45a485b423c2"
-    integrity sha512-s21irsf/UdOxcOPbFGk9mRKvIoXtmAwr34VsM7BTELEIwYDbhDHDjz5u+nziyE1jPNVHGk0ysLTp4RlgObIVjA==
-    dependencies:
-      "@babel/runtime" "^7.20.13"
-      chalk "^4.1.2"
-      date-fns "^2.30.0"
-      fs-extra "^11.1.1"
-      gatsby-core-utils "^4.11.0"
-      graphql-request "^1.8.2"
-      progress "^2.0.3"
-      puppeteer "^3.3.0"
   
   gatsby-plugin-robots-txt@^1.8.0:
     version "1.8.0"
@@ -7710,13 +7679,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/graphql-http/-/graphql-http-1.21.0.tgz#04d1606e663acd3f422e86e2e85f4ae7a8b0881b"
     integrity sha512-yrItPfHj5WeT4n7iusbVin+vGSQjXFAX6U/GnYytdCJRXVad1TWGtYFDZ2ROjCKpXQzIwvfbiWCEwfuXgR3B6A==
   
-  graphql-request@^1.8.2:
-    version "1.8.2"
-    resolved "https://registry.yarnpkg.com/graphql-request/-/graphql-request-1.8.2.tgz#398d10ae15c585676741bde3fc01d5ca948f8fbe"
-    integrity sha512-dDX2M+VMsxXFCmUX0Vo0TopIZIX4ggzOtiCsThgtrKR4niiaagsGTDIHj3fsOMFETpa064vzovI+4YV4QnMbcg==
-    dependencies:
-      cross-fetch "2.2.2"
-  
   graphql-tag@^2.11.0, graphql-tag@^2.12.6:
     version "2.12.6"
     resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.12.6.tgz#d441a569c1d2537ef10ca3d1633b48725329b5f1"
@@ -8104,14 +8066,6 @@ Lockfile:
     dependencies:
       quick-lru "^5.1.1"
       resolve-alpn "^1.2.0"
-  
-  https-proxy-agent@^4.0.0:
-    version "4.0.0"
-    resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-4.0.0.tgz#702b71fb5520a132a66de1f67541d9e62154d82b"
-    integrity sha512-zoDhWrkR3of1l9QAL8/scJZyLu8j/gBkcwcaQOZh7Gyh/+uJQzGVETdgT30akuwkpL8HTRfssqI3BZuV18teDg==
-    dependencies:
-      agent-base "5"
-      debug "4"
   
   https-proxy-agent@^7.0.0:
     version "7.0.1"
@@ -9919,11 +9873,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
     integrity sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
   
-  mime@^2.0.3:
-    version "2.6.0"
-    resolved "https://registry.yarnpkg.com/mime/-/mime-2.6.0.tgz#a2a682a95cd4d0cb1d6257e28f83da7e35800367"
-    integrity sha512-USPkMeET31rOMiarsBNIHZKLGgvKc/LrjofAnBlOttf5ajRvqiRA8QsenbcooctK6d6Ts6aqZXBA+XbkKthiQg==
-  
   mime@^3.0.0:
     version "3.0.0"
     resolved "https://registry.yarnpkg.com/mime/-/mime-3.0.0.tgz#b374550dca3a0c18443b0c950a6a58f1931cf7a7"
@@ -10168,11 +10117,6 @@ Lockfile:
     version "7.0.0"
     resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-7.0.0.tgz#8136add2f510997b3b94814f4af1cce0b0e3962e"
     integrity sha512-vgbBJTS4m5/KkE16t5Ly0WW9hz46swAstv0hYYwMtbG7AznRhNyfLRe8HZAiWIpcHzoO7HxhLuBQj9rJ/Ho0ZA==
-  
-  node-fetch@2.1.2:
-    version "2.1.2"
-    resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
-    integrity sha512-IHLHYskTc2arMYsHZH82PVX8CSKT5lzb7AXeyO06QnjGDKtkv+pv3mEki6S7reB/x1QPo+YPxQRNEVgR5V/w3Q==
   
   node-fetch@^2.6.11, node-fetch@^2.6.12:
     version "2.6.12"
@@ -11129,7 +11073,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
     integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
   
-  progress@2.0.3, progress@^2.0.0, progress@^2.0.1, progress@^2.0.3:
+  progress@2.0.3, progress@^2.0.0, progress@^2.0.3:
     version "2.0.3"
     resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
     integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
@@ -11211,7 +11155,7 @@ Lockfile:
       proxy-from-env "^1.1.0"
       socks-proxy-agent "^8.0.1"
   
-  proxy-from-env@^1.0.0, proxy-from-env@^1.1.0:
+  proxy-from-env@^1.1.0:
     version "1.1.0"
     resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
     integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
@@ -11268,22 +11212,6 @@ Lockfile:
       "@puppeteer/browsers" "1.5.1"
       cosmiconfig "8.2.0"
       puppeteer-core "21.0.2"
-  
-  puppeteer@^3.3.0:
-    version "3.3.0"
-    resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-3.3.0.tgz#95839af9fdc0aa4de7e5ee073a4c0adeb9e2d3d7"
-    integrity sha512-23zNqRltZ1PPoK28uRefWJ/zKb5Jhnzbbwbpcna2o5+QMn17F0khq5s1bdH3vPlyj+J36pubccR8wiNA/VE0Vw==
-    dependencies:
-      debug "^4.1.0"
-      extract-zip "^2.0.0"
-      https-proxy-agent "^4.0.0"
-      mime "^2.0.3"
-      progress "^2.0.1"
-      proxy-from-env "^1.0.0"
-      rimraf "^3.0.2"
-      tar-fs "^2.0.0"
-      unbzip2-stream "^1.3.3"
-      ws "^7.2.3"
   
   qs@6.11.0:
     version "6.11.0"
@@ -11446,7 +11374,7 @@ Lockfile:
       use-callback-ref "^1.3.0"
       use-sidecar "^1.1.2"
   
-  react-is@^16.12.0, react-is@^16.13.1, react-is@^16.7.0:
+  react-is@^16.13.1, react-is@^16.7.0:
     version "16.13.1"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
     integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -13089,7 +13017,7 @@ Lockfile:
       has-symbols "^1.0.3"
       which-boxed-primitive "^1.0.2"
   
-  unbzip2-stream@1.4.3, unbzip2-stream@^1.3.3:
+  unbzip2-stream@1.4.3:
     version "1.4.3"
     resolved "https://registry.yarnpkg.com/unbzip2-stream/-/unbzip2-stream-1.4.3.tgz#b0da04c4371311df771cdc215e87f2130991ace7"
     integrity sha512-mlExGW4w71ebDJviH16lQLtZS32VKqsSfk80GCfUlwT/4/hNRFsoscrF/c++9xinkMzECL1uL9DDwXqFWkruPg==
@@ -13637,11 +13565,6 @@ Lockfile:
       watchpack "^2.4.0"
       webpack-sources "^3.2.3"
   
-  whatwg-fetch@2.0.4:
-    version "2.0.4"
-    resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
-    integrity sha512-dcQ1GWpOD/eEQ97k66aiEVpNnapVj90/+R+SXTPYGHpYBBypfKJEQjLrvMZ7YXbKm21gXd4NcuxUTjiv1YtLng==
-  
   whatwg-url@^5.0.0:
     version "5.0.0"
     resolved "https://registry.yarnpkg.com/whatwg-url/-/whatwg-url-5.0.0.tgz#966454e8765462e37644d3626f6742ce8b70965d"
@@ -13741,7 +13664,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/ws/-/ws-8.13.0.tgz#9a9fb92f93cf41512a0735c8f4dd09b8a1211cd0"
     integrity sha512-x9vcZYTrFPC7aSIbj7sRCYo7L/Xb8Iy+pW0ng0wt2vCJv7M9HOMy0UoN3rr+IFC7hb7vXoqS+P9ktyLLLhO+LA==
   
-  ws@^7.2.3, ws@^7.3.1:
+  ws@^7.3.1:
     version "7.5.9"
     resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.9.tgz#54fa7db29f4c7cec68b1ddd3a89de099942bb591"
     integrity sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==

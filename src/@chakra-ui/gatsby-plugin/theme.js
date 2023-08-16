@@ -1,5 +1,4 @@
 import { extendTheme } from "@chakra-ui/theme-utils";
-import "@fontsource/poppins";
 
 const theme = extendTheme({
   styles: {
@@ -12,8 +11,8 @@ const theme = extendTheme({
     }),
   },
   fonts: {
-    heading: "Poppins, sans-serif",
-    body: "Poppins, sans-serif",
+    heading: "Roboto, sans-serif",
+    body: "Roboto, sans-serif",
   },
   config: {
     useSystemColorMode: false,

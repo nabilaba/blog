@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import SEOComponent from "../components/SEOComponent";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import RenderContentful from "../components/RenderContentful";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import { TimeAgo } from "../utils";
 
 const PostTemplate = ({ data }) => {
   const post = data.contentfulBlogPost;
@@ -12,17 +13,17 @@ const PostTemplate = ({ data }) => {
   return (
     <Box px={{ base: 4, lg: 24 }} h="100%" w="100%">
       <Box>
-        <Heading fontSize="2xl">{post.title}</Heading>
+        <Heading fontSize="2xl">{post?.title}</Heading>
         <Text>
-          {documentToPlainTextString(JSON.parse(post.description.raw))}
+          {documentToPlainTextString(JSON.parse(post?.description.raw))}
         </Text>
         <Text fontSize="80%" color="gray.400">
-          {post.publishDate}
+          {TimeAgo(post?.updatedAt)}
         </Text>
       </Box>
       <GatsbyImage
-        image={getImage(post.heroImage)}
-        alt={post.title}
+        image={getImage(post?.heroImage)}
+        alt={post?.title}
         style={{
           transition: "transform 0.5s ease",
           objectFit: "cover",
@@ -32,7 +33,7 @@ const PostTemplate = ({ data }) => {
           marginBottom: "1rem",
         }}
       />
-      <RenderContentful content={post.body} />
+      <RenderContentful content={post?.body} />
     </Box>
   );
 };
@@ -56,7 +57,7 @@ export const query = graphql`
       heroImage {
         gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
       }
-      publishDate(formatString: "DD MMMM YYYY", locale: "ID")
+      updatedAt
       slug
     }
   }
