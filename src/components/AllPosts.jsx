@@ -1,19 +1,17 @@
 import React from "react";
-import { Grid } from "@chakra-ui/layout";
+import { Box, Grid, Heading } from "@chakra-ui/layout";
 import BannerPost from "./BannerPost";
 
-const AllPosts = ({ posts }) => {
-  if (!posts) return null;
-  if (!Array.isArray(posts)) return null;
+const AllPosts = ({ data }) => {
+  if (!data) return null;
+  if (!Array.isArray(data)) return null;
 
-  const sortedPosts = posts.sort((a, b) => {
-    const dateA = new Date(a.updatedAt);
-    const dateB = new Date(b.updatedAt);
-    return dateB - dateA;
-  });
+  const Post = ({ post }) => {
+    const sortedPosts = post?.sort((a, b) => {
+      return new Date(b.updatedAt) - new Date(a.updatedAt);
+    });
 
-  return (
-    <>
+    return (
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
@@ -26,6 +24,19 @@ const AllPosts = ({ posts }) => {
           <BannerPost key={i} post={post} />
         ))}
       </Grid>
+    );
+  };
+
+  return (
+    <>
+      {data?.map((tags, i) => (
+        <Box key={i} w="100%">
+          <Heading size="md" mb="2">
+            {tags.name}
+          </Heading>
+          <Post post={tags.blog_post} />
+        </Box>
+      ))}
     </>
   );
 };

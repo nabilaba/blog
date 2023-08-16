@@ -10,7 +10,7 @@ module.exports = {
     description: `GatsbyJs with Chakra UI include contentful`,
     twitterUsername: `@nabil_aba`,
     image: `/preview.png`,
-    siteUrl: `https://nabilaba.github.io`,
+    siteUrl: `https://nabilblog.netlify.app/`,
     keywords: `gatsbyjs, gatsby, javascript, sample, something, blog, contentful, chakra ui`,
   },
   plugins: [

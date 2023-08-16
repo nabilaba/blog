@@ -26,9 +26,12 @@ const BannerPost = ({ post, ...props }) => {
         image={getImage(post?.heroImage)}
         alt={post?.title}
         className="img"
+        imgStyle={{
+          objectFit: "cover",
+          objectPosition: "top",
+        }}
         style={{
           transition: "transform 0.5s ease",
-          objectFit: "cover",
           width: "100%",
           height: "100%",
         }}
