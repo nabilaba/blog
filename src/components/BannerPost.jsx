@@ -5,22 +5,11 @@ import { Link } from "gatsby-link";
 import { TimeIcon } from "@chakra-ui/icons";
 import { TimeAgo } from "../utils";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import CustomLink from "./CustomLink";
 
 const BannerPost = ({ post, ...props }) => {
   return (
-    <Box
-      as={Link}
-      to={`/${post?.slug}`}
-      w="100%"
-      rounded="xl"
-      overflow="hidden"
-      _hover={{
-        ".img": {
-          transform: "scale(1.1)",
-        },
-      }}
-      {...props}
-    >
+    <Box w="100%" rounded="xl" {...props}>
       <Box w="100%" h="250px" rounded="xl" overflow="hidden">
         <GatsbyImage
           image={getImage(post?.heroImage)}
@@ -42,7 +31,8 @@ const BannerPost = ({ post, ...props }) => {
           <TimeIcon />
           <Text>{TimeAgo(post?.updatedAt)}</Text>
         </HStack>
-        <Text
+        <CustomLink
+          to={`/posts/${post?.slug}`}
           fontWeight="bold"
           style={{
             display: "-webkit-box",
@@ -53,7 +43,7 @@ const BannerPost = ({ post, ...props }) => {
           }}
         >
           {post?.title}
-        </Text>
+        </CustomLink>
         <Text
           fontSize="sm"
           color="gray.500"
@@ -66,7 +56,7 @@ const BannerPost = ({ post, ...props }) => {
             textOverflow: "ellipsis",
           }}
         >
-          {documentToPlainTextString(JSON.parse(post?.description.raw))}
+          {documentToPlainTextString(JSON.parse(post?.description?.raw))}
         </Text>
         <Text fontSize="sm" color="gray.500" textAlign="justify">
           Tags:{" "}

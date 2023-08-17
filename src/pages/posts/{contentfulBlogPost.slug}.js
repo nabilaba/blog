@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
-import SEOComponent from "../components/SEOComponent";
+import SEOComponent from "../../components/SEOComponent";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import RenderContentful from "../components/RenderContentful";
+import RenderContentful from "../../components/RenderContentful";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
-import { TimeAgo } from "../utils";
+import { TimeAgo } from "../../utils";
 
 const PostTemplate = ({ data }) => {
   const post = data.contentfulBlogPost;

@@ -2,13 +2,21 @@ import * as React from "react";
 import SEOComponent from "../components/SEOComponent";
 import AllPosts from "../components/AllPosts";
 import { graphql } from "gatsby";
-import { Stack } from "@chakra-ui/layout";
+import { Box, Heading, Stack } from "@chakra-ui/layout";
 
 const IndexPage = ({ data }) => {
+  const tags = data.allContentfulTags.nodes;
   return (
     <>
-      <Stack>
-        <AllPosts data={data.allContentfulTags.nodes} />
+      <Stack spacing="6">
+        {tags?.map((tag, i) => (
+          <Box key={i} w="100%">
+            <Heading size="md" mb="2">
+              {tag.name}
+            </Heading>
+            <AllPosts data={tag.blog_post} />
+          </Box>
+        ))}
       </Stack>
     </>
   );
@@ -51,6 +59,9 @@ export const pageQuery = graphql`
         }
         tags {
           name
+        }
+        description {
+          raw
         }
       }
     }

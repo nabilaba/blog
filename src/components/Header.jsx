@@ -5,9 +5,22 @@ import { HStack, Text } from "@chakra-ui/layout";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import { SearchIcon, SunIcon, MoonIcon } from "@chakra-ui/icons";
 import { Link } from "gatsby-link";
+import { graphql, useStaticQuery } from "gatsby";
+import CustomLink from "./CustomLink";
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulBlogPost {
+        totalCount
+      }
+      allContentfulTags {
+        totalCount
+      }
+    }
+  `);
+
   return (
     <HStack
       as="nav"
@@ -19,17 +32,35 @@ const Header = () => {
       pos="sticky"
       top="0"
       zIndex="100"
+      boxShadow="sm"
     >
-      <Text
-        as={Link}
-        to="/"
-        fontWeight="extrabold"
-        fontStyle="italic"
-        fontSize="3xl"
-        letterSpacing="wider"
-      >
-        NabilBlog.
-      </Text>
+      <HStack spacing="10">
+        <Text
+          as={Link}
+          to="/"
+          fontWeight="extrabold"
+          fontStyle="italic"
+          fontSize="3xl"
+          letterSpacing="wider"
+        >
+          NabilBlog.
+        </Text>
+        <HStack spacing="6">
+          <CustomLink to="/posts">
+            Posts
+            <sup style={{ fontStyle: "italic" }}>
+              ({data.allContentfulBlogPost.totalCount})
+            </sup>
+          </CustomLink>
+          <CustomLink to="/tags">
+            Tags
+            <sup style={{ fontStyle: "italic" }}>
+              ({data.allContentfulTags.totalCount})
+            </sup>
+          </CustomLink>
+          <CustomLink to="/sitemap.xml">Sitemap</CustomLink>
+        </HStack>
+      </HStack>
       <HStack>
         <HStack
           as="form"
