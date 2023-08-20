@@ -58,7 +58,7 @@ const Header = () => {
               ({data.allContentfulTags.totalCount})
             </sup>
           </CustomLink>
-          <CustomLink to="/sitemap.xml">Sitemap</CustomLink>
+          <CustomLink to="/sitemap-0.xml">Sitemap</CustomLink>
         </HStack>
       </HStack>
       <HStack>

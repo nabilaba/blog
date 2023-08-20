@@ -6,8 +6,10 @@ import { TimeIcon } from "@chakra-ui/icons";
 import { TimeAgo } from "../utils";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import CustomLink from "./CustomLink";
+import ReadingTime from "./ReadingTime";
 
 const BannerPost = ({ post, ...props }) => {
+  const plainTextBody = documentToPlainTextString(JSON.parse(post?.body?.raw));
   return (
     <Box w="100%" rounded="xl" {...props}>
       <Box w="100%" h="250px" rounded="xl" overflow="hidden">
@@ -27,9 +29,12 @@ const BannerPost = ({ post, ...props }) => {
         />
       </Box>
       <Box p="2" fontSize="xl">
-        <HStack fontSize="60%" color="gray.500" spacing="1">
-          <TimeIcon />
-          <Text>{TimeAgo(post?.updatedAt)}</Text>
+        <HStack fontSize="13px" color="gray.500" justifyContent="space-between">
+          <HStack spacing="1">
+            <TimeIcon />
+            <Text>{TimeAgo(post?.updatedAt)}</Text>
+          </HStack>
+          <ReadingTime text={plainTextBody} />
         </HStack>
         <CustomLink
           to={`/posts/${post?.slug}`}
@@ -45,7 +50,7 @@ const BannerPost = ({ post, ...props }) => {
           {post?.title}
         </CustomLink>
         <Text
-          fontSize="sm"
+          fontSize="14px"
           color="gray.500"
           textAlign="justify"
           style={{
@@ -58,7 +63,7 @@ const BannerPost = ({ post, ...props }) => {
         >
           {documentToPlainTextString(JSON.parse(post?.description?.raw))}
         </Text>
-        <Text fontSize="sm" color="gray.500" textAlign="justify">
+        <Text fontSize="14px" color="gray.500" textAlign="justify">
           Tags:{" "}
           {post?.tags.map((tag, i) => (
             <Text

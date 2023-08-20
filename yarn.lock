@@ -9986,6 +9986,11 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+reading-time@2.0.0-1:
+  version "2.0.0-1"
+  resolved "https://registry.yarnpkg.com/reading-time/-/reading-time-2.0.0-1.tgz#fe7a94e1d9199700f166b744925681cdb8851d06"
+  integrity sha512-5Eoo17ZGqH2L0jmMZUNKARiGAX3NCC0LR+mDHTX+nMPqFSRwMQrsxhI9NOSEfzH8E1W5vGAKFcyQAk3Rla1WuA==
+
 recursive-readdir@^2.2.2:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/recursive-readdir/-/recursive-readdir-2.2.3.tgz#e726f328c0d69153bcabd5c322d3195252379372"

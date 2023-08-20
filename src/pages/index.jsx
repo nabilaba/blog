@@ -33,6 +33,9 @@ export const pageQuery = graphql`
     allContentfulTags(sort: { name: ASC }) {
       nodes {
         blog_post {
+          body {
+            raw
+          }
           description {
             raw
           }
@@ -59,6 +62,9 @@ export const pageQuery = graphql`
         }
         tags {
           name
+        }
+        body {
+          raw
         }
         description {
           raw

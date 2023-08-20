@@ -37,6 +37,9 @@ export const pageQuery = graphql`
         tags {
           name
         }
+        body {
+          raw
+        }
         description {
           raw
         }

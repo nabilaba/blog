@@ -3,12 +3,14 @@ import { graphql } from "gatsby";
 import SEOComponent from "../../components/SEOComponent";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import RenderContentful from "../../components/RenderContentful";
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, HStack, Heading, Text } from "@chakra-ui/react";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import { TimeAgo } from "../../utils";
+import ReadingTime from "../../components/ReadingTime";
 
 const PostTemplate = ({ data }) => {
   const post = data.contentfulBlogPost;
+  const plainTextBody = documentToPlainTextString(JSON.parse(post?.body?.raw));
 
   return (
     <Box px={{ base: 4, lg: 24 }} h="100%" w="100%">
@@ -17,9 +19,11 @@ const PostTemplate = ({ data }) => {
         <Text>
           {documentToPlainTextString(JSON.parse(post?.description.raw))}
         </Text>
-        <Text fontSize="80%" color="gray.400">
-          {TimeAgo(post?.updatedAt)}
-        </Text>
+        <HStack color="gray.500" fontSize="80%">
+          <Text>{TimeAgo(post?.updatedAt)}</Text>
+          <Text>·</Text>
+          <ReadingTime text={plainTextBody} />
+        </HStack>
       </Box>
       <GatsbyImage
         image={getImage(post?.heroImage)}
