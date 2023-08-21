@@ -1,18 +1,16 @@
 import * as React from "react";
 import SEOComponent from "../../components/SEOComponent";
-import AllPosts from "../../components/AllPosts";
+import BaseListPosts from "../../components/BaseListPosts";
 import { graphql } from "gatsby";
-import { Box, Heading } from "@chakra-ui/layout";
+import { Box, Text } from "@chakra-ui/layout";
 
 const IndexPage = ({ data }) => {
   const blogPosts = data.allContentfulBlogPost.nodes;
   return (
     <>
       <Box>
-        <Heading size="md" mb="2">
-          All Posts
-        </Heading>
-        <AllPosts data={blogPosts} />
+        <Text mb="2">Menampilkan semua post yang ada di blog ini.</Text>
+        <BaseListPosts data={blogPosts} />
       </Box>
     </>
   );
@@ -21,7 +19,7 @@ const IndexPage = ({ data }) => {
 export default IndexPage;
 
 export const Head = () => {
-  return <SEOComponent />;
+  return <SEOComponent title="All Posts" />;
 };
 
 export const pageQuery = graphql`

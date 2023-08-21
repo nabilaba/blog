@@ -3,7 +3,6 @@ import { Grid } from "@chakra-ui/layout";
 import BannerPost from "./BannerPost";
 
 const AllPosts = ({ data }) => {
-  console.log(data);
   if (!data) return null;
   if (!Array.isArray(data)) return null;
 

@@ -8,7 +8,7 @@ import { documentToPlainTextString } from "@contentful/rich-text-plain-text-rend
 import { TimeAgo } from "../../utils";
 import ReadingTime from "../../components/ReadingTime";
 
-const PostTemplate = ({ data }) => {
+const BlogPostTemplate = ({ data }) => {
   const post = data.contentfulBlogPost;
   const plainTextBody = documentToPlainTextString(JSON.parse(post?.body?.raw));
 
@@ -42,7 +42,7 @@ const PostTemplate = ({ data }) => {
   );
 };
 
-export default PostTemplate;
+export default BlogPostTemplate;
 
 export const Head = ({ data }) => {
   return <SEOComponent title={data.contentfulBlogPost.title} />;

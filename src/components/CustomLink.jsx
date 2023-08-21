@@ -11,7 +11,7 @@ export default function CustomLink(props) {
         content: '""',
         display: "block",
         w: "100%",
-        h: "2px",
+        h: "1px",
         bg: "gray.600",
         transform: "scaleX(0)",
         transformOrigin: "right",

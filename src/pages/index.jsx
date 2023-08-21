@@ -1,6 +1,6 @@
 import * as React from "react";
 import SEOComponent from "../components/SEOComponent";
-import AllPosts from "../components/AllPosts";
+import BaseListPosts from "../components/BaseListPosts";
 import { graphql } from "gatsby";
 import { Box, Heading, Stack } from "@chakra-ui/layout";
 
@@ -14,7 +14,7 @@ const IndexPage = ({ data }) => {
             <Heading size="md" mb="2">
               {tag.name}
             </Heading>
-            <AllPosts data={tag.blog_post} />
+            <BaseListPosts data={tag.blog_post} />
           </Box>
         ))}
       </Stack>
