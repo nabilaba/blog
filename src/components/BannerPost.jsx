@@ -69,7 +69,7 @@ const BannerPost = ({ post, ...props }) => {
             <Text
               key={i}
               as={Link}
-              to={`/tags/${tag?.name}`}
+              to={`/tags/${tag?.name.toLowerCase()}`}
               textDecor="underline"
             >
               {tag?.name}
