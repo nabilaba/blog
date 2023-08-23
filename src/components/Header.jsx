@@ -1,7 +1,7 @@
-import * as React from "react";
+import React from "react";
 import { IconButton } from "@chakra-ui/button";
 import { Input } from "@chakra-ui/input";
-import { HStack, Text, Stack } from "@chakra-ui/layout";
+import { HStack, Text, Stack, StackDivider } from "@chakra-ui/layout";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import { SearchIcon, SunIcon, MoonIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "gatsby-link";
@@ -15,11 +15,17 @@ import {
   DrawerHeader,
   DrawerContent,
   DrawerCloseButton,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
 } from "@chakra-ui/modal";
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const drawerMobile = useDisclosure();
+  const searchModal = useDisclosure();
+  const [searchInput, setSearchInput] = React.useState("");
 
   const data = useStaticQuery(graphql`
     query {
@@ -27,10 +33,27 @@ const Header = () => {
         totalCount
       }
       allContentfulTags {
+        nodes {
+          blog_post {
+            title
+            slug
+          }
+          name
+        }
         totalCount
       }
     }
   `);
+
+  const filteredData = data?.allContentfulTags?.nodes?.map((node) => {
+    const filteredBlogPost = node.blog_post.filter((post) =>
+      post.title.toLowerCase().includes(searchInput.toLowerCase())
+    );
+    return {
+      name: node.name,
+      blog_post: filteredBlogPost,
+    };
+  });
 
   const NavItem = (props) => (
     <Stack
@@ -42,13 +65,13 @@ const Header = () => {
       <CustomLink to="/posts">
         Posts
         <sup style={{ fontStyle: "italic" }}>
-          ({data.allContentfulBlogPost.totalCount})
+          ({data?.allContentfulBlogPost?.totalCount})
         </sup>
       </CustomLink>
       <CustomLink to="/tags">
         Tags
         <sup style={{ fontStyle: "italic" }}>
-          ({data.allContentfulTags.totalCount})
+          ({data?.allContentfulTags?.totalCount})
         </sup>
       </CustomLink>
       <CustomLink to="/sitemap-0.xml">Sitemap</CustomLink>
@@ -94,23 +117,35 @@ const Header = () => {
         </HStack>
         <HStack>
           <HStack
-            as="form"
-            px="2"
+            px="3"
             spacing="2"
-            bg={useColorModeValue("gray.100", "gray.700")}
+            bg={{
+              base: "transparent",
+              md: useColorModeValue("gray.100", "gray.700"),
+            }}
             rounded="full"
             justify="space-between"
-            w="20vw"
-            onSubmit={(e) => e.preventDefault()}
+            w={{ base: "100%", md: "20vw" }}
+            onClick={() => {
+              searchModal.onOpen();
+              setSearchInput("");
+            }}
+            cursor="pointer"
           >
-            <Input p="0" placeholder="Cari berita" bg="transparent" size="sm" />
+            <Text
+              display={{ base: "none", md: "inherit" }}
+              color={useColorModeValue("gray.500", "gray.300")}
+              fontSize="sm"
+            >
+              Cari Postingan
+            </Text>
             <IconButton
               aria-label="Search"
               icon={<SearchIcon />}
               variant="ghost"
               colorScheme="gray"
               size="sm"
-              type="submit"
+              minW="0"
             />
           </HStack>
           <IconButton
@@ -153,6 +188,59 @@ const Header = () => {
           </DrawerContent>
         </Drawer>
       </Hide>
+      <Modal
+        isOpen={searchModal.isOpen}
+        onClose={searchModal.onClose}
+        size={{ base: "md", md: "2xl" }}
+      >
+        <ModalOverlay />
+        <ModalContent bg={useColorModeValue("gray.100", "gray.700")}>
+          <ModalBody>
+            <Stack divider={<StackDivider />}>
+              <HStack justify="space-between">
+                <Input
+                  px="0"
+                  placeholder="Cari Postingan"
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  fontSize="sm"
+                />
+                <IconButton
+                  aria-label="Search"
+                  icon={<SearchIcon />}
+                  variant="ghost"
+                  colorScheme="gray"
+                  size="sm"
+                  minW="0"
+                />
+              </HStack>
+              {searchInput &&
+                searchInput.length > 1 &&
+                filteredData?.filter((node) => node.blog_post.length > 0)
+                  .length > 0 && (
+                  <Stack my="4">
+                    {filteredData?.map((node) => (
+                      <Stack key={node.name} spacing="2">
+                        <Text fontWeight="bold">{node.name}</Text>
+                        {node.blog_post.map((post) => (
+                          <CustomLink
+                            key={post.slug}
+                            to={`/posts/${post.slug}`}
+                            onClick={() => {
+                              searchModal.onClose();
+                              setSearchInput("");
+                            }}
+                          >
+                            {post.title}
+                          </CustomLink>
+                        ))}
+                      </Stack>
+                    ))}
+                  </Stack>
+                )}
+            </Stack>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </>
   );
 };
