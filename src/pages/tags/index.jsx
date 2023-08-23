@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import SEOComponent from "../../components/SEOComponent";
 import { Box, UnorderedList, ListItem, Text } from "@chakra-ui/layout";
 import CustomLink from "../../components/CustomLink";

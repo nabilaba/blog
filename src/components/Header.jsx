@@ -19,7 +19,7 @@ import {
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const drawerMobile = useDisclosure();
 
   const data = useStaticQuery(graphql`
     query {
@@ -77,7 +77,7 @@ const Header = () => {
               aria-label="Open Menu"
               display={{ base: "inherit", md: "none" }}
               variant="outline"
-              onClick={onOpen}
+              onClick={drawerMobile.onOpen}
             />
             <Text
               as={Link}
@@ -90,9 +90,7 @@ const Header = () => {
               NabilBlog.
             </Text>
           </HStack>
-          <Hide below="md">
-            <NavItem />
-          </Hide>
+          <NavItem display={{ base: "none", md: "inherit" }} />
         </HStack>
         <HStack>
           <HStack
@@ -128,12 +126,12 @@ const Header = () => {
       </HStack>
       <Hide above="md">
         <Drawer
-          isOpen={isOpen}
+          isOpen={drawerMobile.isOpen}
           returnFocusOnClose={false}
-          onOverlayClick={onClose}
+          onOverlayClick={drawerMobile.onClose}
           placement="left"
           size="full"
-          onClose={onClose}
+          onClose={drawerMobile.onClose}
         >
           <DrawerContent>
             <DrawerCloseButton />
@@ -150,7 +148,7 @@ const Header = () => {
               </Text>
             </DrawerHeader>
             <DrawerBody>
-              <NavItem onClick={onClose} />
+              <NavItem onClick={drawerMobile.onClose} />
             </DrawerBody>
           </DrawerContent>
         </Drawer>
