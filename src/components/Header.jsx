@@ -178,6 +178,7 @@ const Header = () => {
                 fontStyle="italic"
                 fontSize="3xl"
                 letterSpacing="wider"
+                onClick={drawerMobile.onClose}
               >
                 NabilBlog.
               </Text>
