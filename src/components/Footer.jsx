@@ -1,7 +1,6 @@
 import React from "react";
-import { Box, Text, Stack } from "@chakra-ui/layout";
+import { Box, Text } from "@chakra-ui/layout";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
-import { useColorModeValue } from "@chakra-ui/color-mode";
 
 const Footer = () => {
   const { description } = useSiteMetadata();
