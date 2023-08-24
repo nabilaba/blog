@@ -2,6 +2,7 @@ import * as React from "react";
 import Header from "./Header";
 import { Box } from "@chakra-ui/layout";
 import { useColorModeValue } from "@chakra-ui/color-mode";
+import Footer from "./Footer";
 
 const Layout = ({ children, ...props }) => {
   return (
@@ -16,6 +17,7 @@ const Layout = ({ children, ...props }) => {
       >
         {children}
       </Box>
+      <Footer />
     </>
   );
 };
