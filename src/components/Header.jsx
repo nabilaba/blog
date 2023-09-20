@@ -31,29 +31,20 @@ const Header = () => {
     query {
       allContentfulBlogPost {
         totalCount
+        nodes {
+          title
+          slug
+        }
       }
       allContentfulTags {
-        nodes {
-          blog_post {
-            title
-            slug
-          }
-          name
-        }
         totalCount
       }
     }
   `);
 
-  const filteredData = data?.allContentfulTags?.nodes?.map((node) => {
-    const filteredBlogPost = node?.blog_post?.filter((post) =>
-      post.title.toLowerCase().includes(searchInput.toLowerCase())
-    );
-    return {
-      name: node.name,
-      blog_post: filteredBlogPost,
-    };
-  });
+  const filteredData = data?.allContentfulBlogPost?.nodes?.filter((post) =>
+    post?.title?.toLowerCase().includes(searchInput?.toLowerCase())
+  );
 
   const NavItem = (props) => (
     <Stack
@@ -216,28 +207,16 @@ const Header = () => {
               </HStack>
               {searchInput &&
                 searchInput.length > 1 &&
-                filteredData?.filter((node) => node.blog_post.length > 0)
-                  .length > 0 && (
-                  <Stack my="4">
-                    {filteredData?.map((node) => (
-                      <Stack key={node.name} spacing="2">
-                        <Text fontWeight="bold">{node.name}</Text>
-                        {node.blog_post.map((post) => (
-                          <CustomLink
-                            key={post.slug}
-                            to={`/posts/${post.slug}`}
-                            onClick={() => {
-                              searchModal.onClose();
-                              setSearchInput("");
-                            }}
-                          >
-                            {post.title}
-                          </CustomLink>
-                        ))}
-                      </Stack>
-                    ))}
-                  </Stack>
-                )}
+                filteredData?.length > 0 &&
+                filteredData?.map((post, i) => (
+                  <CustomLink
+                    key={i}
+                    to={`/posts/${post?.slug}`}
+                    onClick={searchModal.onClose}
+                  >
+                    {post?.title}
+                  </CustomLink>
+                ))}
             </Stack>
           </ModalBody>
         </ModalContent>

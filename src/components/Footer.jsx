@@ -1,11 +1,11 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/layout";
+import { Stack, Text } from "@chakra-ui/layout";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const Footer = () => {
   const { description } = useSiteMetadata();
   return (
-    <Box align="center" justify="center" p="4">
+    <Stack align="center" justify="center" h="100px" spacing="0">
       <Text
         fontWeight="extrabold"
         fontStyle="italic"
@@ -18,7 +18,7 @@ const Footer = () => {
       <Text fontSize="sm" mt="2">
         © {new Date().getFullYear()} NabilBlog. All rights reserved.
       </Text>
-    </Box>
+    </Stack>
   );
 };
 

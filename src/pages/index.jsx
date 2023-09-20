@@ -8,8 +8,6 @@ import Empty from "../components/Empty";
 const IndexPage = ({ data }) => {
   const tags = data?.allContentfulTags?.nodes;
 
-  console.log(tags);
-
   if (!tags) return <Empty />;
   if (!Array.isArray(tags)) return <Empty />;
   if (tags.length === 0) return <Empty />;

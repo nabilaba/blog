@@ -6,7 +6,7 @@ require("dotenv").config({
  */
 module.exports = {
   siteMetadata: {
-    title: `Blog Nabil`,
+    title: `NabilBlog`,
     description: `GatsbyJs with Chakra UI include contentful`,
     twitterUsername: `@nabil_aba`,
     image: `/preview.png`,

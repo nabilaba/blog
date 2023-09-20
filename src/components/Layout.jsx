@@ -10,7 +10,7 @@ const Layout = ({ children, ...props }) => {
       <Header />
       <Box
         w="100%"
-        minH="calc(100vh - 50px)"
+        minH="calc(100vh - 50px - 100px)"
         p="4"
         bg={useColorModeValue("gray.100", "gray.700")}
         {...props}
