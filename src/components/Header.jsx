@@ -46,7 +46,7 @@ const Header = () => {
   `);
 
   const filteredData = data?.allContentfulTags?.nodes?.map((node) => {
-    const filteredBlogPost = node.blog_post.filter((post) =>
+    const filteredBlogPost = node?.blog_post?.filter((post) =>
       post.title.toLowerCase().includes(searchInput.toLowerCase())
     );
     return {

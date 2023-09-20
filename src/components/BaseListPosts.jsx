@@ -5,6 +5,7 @@ import BannerPost from "./BannerPost";
 const AllPosts = ({ data }) => {
   if (!data) return null;
   if (!Array.isArray(data)) return null;
+  if (data.length === 0) return null;
 
   const sortedPosts = data?.sort((a, b) => {
     return new Date(b.updatedAt) - new Date(a.updatedAt);

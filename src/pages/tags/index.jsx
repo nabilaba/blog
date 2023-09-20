@@ -3,9 +3,17 @@ import { graphql } from "gatsby";
 import SEOComponent from "../../components/SEOComponent";
 import { Box, UnorderedList, ListItem, Text } from "@chakra-ui/layout";
 import CustomLink from "../../components/CustomLink";
+import Empty from "../../components/Empty";
 
 const IndexPage = ({ data }) => {
-  const tags = data.allContentfulTags.nodes;
+  const tags = data?.allContentfulTags?.nodes;
+
+  if (!tags) return <Empty message="Tidak ada tag yang ditampilkan." />;
+  if (!Array.isArray(tags))
+    return <Empty message="Tidak ada tag yang ditampilkan." />;
+  if (tags.length === 0)
+    return <Empty message="Tidak ada tag yang ditampilkan." />;
+
   return (
     <>
       <Box>
@@ -13,7 +21,13 @@ const IndexPage = ({ data }) => {
         <UnorderedList listStylePosition="outside" w="fit-content" pl="4">
           {tags?.map((tag, i) => (
             <ListItem key={i}>
-              <CustomLink to={`/tags/${tag.name.toLowerCase()}`}>
+              <CustomLink
+                // replace uppercase to dash and lowercase except first letter
+                to={`/tags/${tag?.name
+                  .replace(/([A-Z])/g, "-$1")
+                  .toLowerCase()
+                  .replace(/(^-)/g, "")}`}
+              >
                 {tag.name}
               </CustomLink>
             </ListItem>

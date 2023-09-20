@@ -65,16 +65,23 @@ const BannerPost = ({ post, ...props }) => {
         </Text>
         <Text fontSize="14px" color="gray.500" textAlign="justify">
           Tags:{" "}
-          {post?.tags.map((tag, i) => (
-            <Text
-              key={i}
-              as={Link}
-              to={`/tags/${tag?.name.toLowerCase()}`}
-              textDecor="underline"
-            >
-              {tag?.name}
-            </Text>
-          ))}
+          {post &&
+            post?.tags?.map((tag, i) =>
+              (
+                <Text
+                  key={i}
+                  as={Link}
+                  // replace uppercase to dash and lowercase except first letter
+                  to={`/tags/${tag?.name
+                    .replace(/([A-Z])/g, "-$1")
+                    .toLowerCase()
+                    .replace(/(^-)/g, "")}`}
+                  textDecor="underline"
+                >
+                  {tag?.name}
+                </Text>
+              )).reduce((prev, curr) => [prev, ", ", curr])
+            }
         </Text>
       </Box>
     </Box>

@@ -1,10 +1,10 @@
 import React from "react";
 import { Stack, Text } from "@chakra-ui/layout";
 
-const EmptyPost = () => {
+const EmptyPost = ({ message }) => {
   return (
     <Stack>
-      <Text>There are no posts yet.</Text>
+      <Text>{message || "Tidak ada post yang ditampilkan."}</Text>
     </Stack>
   );
 };

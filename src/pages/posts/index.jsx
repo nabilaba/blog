@@ -3,9 +3,15 @@ import SEOComponent from "../../components/SEOComponent";
 import BaseListPosts from "../../components/BaseListPosts";
 import { graphql } from "gatsby";
 import { Box, Text } from "@chakra-ui/layout";
+import Empty from "../../components/Empty";
 
 const IndexPage = ({ data }) => {
-  const blogPosts = data.allContentfulBlogPost.nodes;
+  const blogPosts = data?.allContentfulBlogPost?.nodes;
+
+  if (!blogPosts) return <Empty />;
+  if (!Array.isArray(blogPosts)) return <Empty />;
+  if (blogPosts.length === 0) return <Empty />;
+
   return (
     <>
       <Box>

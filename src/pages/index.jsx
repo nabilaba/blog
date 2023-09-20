@@ -3,14 +3,16 @@ import SEOComponent from "../components/SEOComponent";
 import BaseListPosts from "../components/BaseListPosts";
 import { graphql } from "gatsby";
 import { Box, Heading, Stack } from "@chakra-ui/layout";
-import EmptyPost from "../components/EmptyPost";
+import Empty from "../components/Empty";
 
 const IndexPage = ({ data }) => {
-  const tags = [];
+  const tags = data?.allContentfulTags?.nodes;
 
-  if (!tags) return <EmptyPost />;
-  if (!Array.isArray(tags)) return <EmptyPost />;
-  if (tags.length === 0) return <EmptyPost />;
+  console.log(tags);
+
+  if (!tags) return <Empty />;
+  if (!Array.isArray(tags)) return <Empty />;
+  if (tags.length === 0) return <Empty />;
 
   return (
     <>
