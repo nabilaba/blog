@@ -6,6 +6,7 @@ import { Box, Heading, Stack } from "@chakra-ui/layout";
 import Empty from "../components/Empty";
 
 const IndexPage = ({ data }) => {
+  const blogPosts = data?.allContentfulBlogPost?.nodes;
   const tags = data?.allContentfulTags?.nodes;
 
   if (!tags) return <Empty />;
@@ -15,6 +16,7 @@ const IndexPage = ({ data }) => {
   return (
     <>
       <Stack spacing="6">
+        <BaseListPosts data={blogPosts} />
         {tags?.map((tag, i) => (
           <Box key={i} w="100%">
             <Heading size="md" mb="2">

@@ -54,6 +54,14 @@ export const query = graphql`
       title
       body {
         raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            gatsbyImageData
+            title
+          }
+        }
       }
       description {
         raw

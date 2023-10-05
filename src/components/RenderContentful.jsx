@@ -78,21 +78,17 @@ const options = {
     ),
     [BLOCKS.HR]: () => <header />,
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      const { gatsbyImageData, description } = node.data.target;
-
-      return (
-        <GatsbyImage
-          image={getImage(gatsbyImageData)}
-          alt={description}
-          className="mb-10"
-        />
-      );
+      const { gatsbyImageData, title } = node.data.target;
+      if (!gatsbyImageData) {
+        return null;
+      }
+      return <GatsbyImage image={getImage(gatsbyImageData)} alt={title} />;
     },
   },
 };
 
 const RenderContentful = ({ content }) => {
-  return <div>{renderRichText(content, options)}</div>;
+  return <>{renderRichText(content, options)}</>;
 };
 
 export default RenderContentful;

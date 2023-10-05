@@ -12,23 +12,21 @@ const BannerPost = ({ post, ...props }) => {
   const plainTextBody = documentToPlainTextString(JSON.parse(post?.body?.raw));
   return (
     <Box w="100%" rounded="xl" {...props}>
-      <Box w="100%" h="250px" rounded="xl" overflow="hidden">
+      <Box w="100%" h="250px">
         <GatsbyImage
           image={getImage(post?.heroImage)}
           alt={post?.title}
-          className="img"
           imgStyle={{
             objectFit: "cover",
             objectPosition: "top",
           }}
           style={{
-            transition: "transform 0.5s ease",
             width: "100%",
             height: "100%",
           }}
         />
       </Box>
-      <Box p="2" fontSize="xl">
+      <Box py="2" fontSize="xl">
         <HStack fontSize="13px" color="gray.500" justifyContent="space-between">
           <HStack spacing="1">
             <TimeIcon />
