@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@chakra-ui/layout";
 import BannerPost from "./BannerPost";
 
-const AllPosts = ({ data }) => {
+const BaseListPosts = ({ data, ...props }) => {
   if (!data) return null;
   if (!Array.isArray(data)) return null;
   if (data.length === 0) return null;
@@ -19,6 +19,7 @@ const AllPosts = ({ data }) => {
         xl: "repeat(4, 1fr)",
       }}
       gap={2}
+      {...props}
     >
       {sortedPosts?.map((post, i) => (
         <BannerPost key={i} post={post} />
@@ -27,4 +28,4 @@ const AllPosts = ({ data }) => {
   );
 };
 
-export default AllPosts;
+export default BaseListPosts;

@@ -14,12 +14,12 @@ const BlogPostTemplate = ({ data }) => {
 
   return (
     <Box px={{ base: 4, lg: 24 }} h="100%" w="100%">
-      <Box>
+      <Box textAlign="center">
         <Heading fontSize="2xl">{post?.title}</Heading>
         <Text>
           {documentToPlainTextString(JSON.parse(post?.description.raw))}
         </Text>
-        <HStack color="gray.500" fontSize="80%">
+        <HStack color="gray.500" fontSize="80%" align="center" justify="center">
           <Text>{TimeAgo(post?.updatedAt)}</Text>
           <Text>·</Text>
           <ReadingTime text={plainTextBody} />

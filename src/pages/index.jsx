@@ -17,14 +17,17 @@ const IndexPage = ({ data }) => {
     <>
       <Stack spacing="6">
         <BaseListPosts data={blogPosts} />
-        {tags?.map((tag, i) => (
-          <Box key={i} w="100%">
-            <Heading size="md" mb="2">
-              {tag.name}
-            </Heading>
-            <BaseListPosts data={tag.blog_post} />
-          </Box>
-        ))}
+        {tags?.map((tag, i) =>
+          // if tag blog post is empty, don't show
+          tag.blog_post.length === 0 ? null : (
+            <Box key={i} w="100%">
+              <Heading size="md" mb="2">
+                {tag.name}
+              </Heading>
+              <BaseListPosts data={tag.blog_post} />
+            </Box>
+          )
+        )}
       </Stack>
     </>
   );
