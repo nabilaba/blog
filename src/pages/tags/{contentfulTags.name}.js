@@ -3,10 +3,16 @@ import BaseListPosts from "../../components/BaseListPosts";
 import SEOComponent from "../../components/SEOComponent";
 import { graphql } from "gatsby";
 import { Box, Text } from "@chakra-ui/layout";
+import Empty from "../../components/Empty";
 
 const TagTemplate = ({ data }) => {
   const posts = data.contentfulTags.blog_post;
   const tag = data.contentfulTags.name;
+
+  if (!posts) return <Empty />;
+  if (!Array.isArray(posts)) return <Empty />;
+  if (posts.length === 0) return <Empty />;
+
   return (
     <>
       <Box>

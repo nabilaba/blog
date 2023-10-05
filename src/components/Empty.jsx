@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack, Text } from "@chakra-ui/layout";
 
-const EmptyPost = ({ message }) => {
+const Empty = ({ message }) => {
   return (
     <Stack>
       <Text>{message || "Tidak ada post yang ditampilkan."}</Text>
@@ -9,4 +9,4 @@ const EmptyPost = ({ message }) => {
   );
 };
 
-export default EmptyPost;
+export default Empty;

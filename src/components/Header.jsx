@@ -60,11 +60,12 @@ const Header = () => {
         </sup>
       </CustomLink>
       <CustomLink to="/tags">
-        Tags
+        Categories
         <sup style={{ fontStyle: "italic" }}>
           ({data?.allContentfulTags?.totalCount})
         </sup>
       </CustomLink>
+      <CustomLink to="/about">About</CustomLink>
       <CustomLink to="/sitemap-0.xml">Sitemap</CustomLink>
     </Stack>
   );

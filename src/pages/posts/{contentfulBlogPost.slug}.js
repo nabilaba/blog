@@ -13,7 +13,7 @@ const BlogPostTemplate = ({ data }) => {
   const plainTextBody = documentToPlainTextString(JSON.parse(post?.body?.raw));
 
   return (
-    <Box px={{ base: 4, lg: 24 }} h="100%" w="100%">
+    <Box px={{ base: 4, lg: 24 }} h="100%" w="100%" py={{ base: 4, lg: 10 }}>
       <Box textAlign="center">
         <Heading fontSize="2xl">{post?.title}</Heading>
         <Text>
